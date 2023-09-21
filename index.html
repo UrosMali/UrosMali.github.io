@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html data-kantu="1">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- Useful for tablet and mobile based browsing-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Title of the page (not necessarily the lab) - for reference only, not displayed on the page-->
+	<title>EBV-IoT - Introduction</title>
+  <link rel="icon" type="image/x-icon" href="https://www.avnet.com/wps/contenthandler/!ut/p/digest!-FCm2sisriEGGFffr1BxTg/dav/fs-type1/themes/Avnet_Stores/css/images/ebv/favicon.ico">
+	<!-- CSS template stylesheet must be linked here-->
+	<link href="./html_support_files/renesas_layout_style.css" rel="stylesheet" type="text/css">
+	<!-- Javascript based lab templating helper must be placed here-->
+	<script type="text/javascript" src="./html_support_files/lab-templater.js"></script>
+ <style>
+    body {
+      /* Set counter for h1 manually since each section is own html page. Set Section#-1*/
+      counter-reset: h1 0 h2 h3 h4;
+    }
+    </style>
+</head>
+
+<body>
+	<link href='https://fonts.googleapis.com/css?family=Hanken Grotesk' rel='stylesheet'>
+
+  <!-- Populate the page header (banner, title & navigation menu)-->
+  <script>lab_templater.Generate_header();</script>
+	
+	<!-- Begin the main content of the page-->
+    <div class="main-content">
+	<details open="">
+    <!-- We do not use h1 for introduction to keep it as "details"-->
+    <summary><h1>Introduction</h1></summary>
+    <p>EBV Elektronik has designed a complete onboarding flow on top of Avnet IoTConnect cloud to simplify device onboarding and cloud platform
+    evaluation. From building a complete cloud environment in an instant, leveraging the challenge of building state of the art secured IoT
+    device (using EBV Elektronik hardware and software), to bringing data to end user via the EBV Mobile App. This cloud ecosystem aims at
+    offering a fast, innovative, and scalable platform which provides real product differentiation to customers at minimal cost.</p>
+  </details>
+  <details open>
+    <summary><h2>Deliverables</h2></summary>   
+    <p>The training material is provided during the Training sessions and comes as:</p>
+    <ul>
+      <li>EBV-IoTC Training Zip (.zip file)</li>
+      <li>EBV-IoTC Training no MTB Zip (.zip file without ModusToolbox)</li>
+    </ul>
+    <p>The different resources needed to complete this training (hands-on documentation, datasheets, application notes, software &amp; tools) are included in the delivery. However, the training manual always refer you to latest documentation provided by the manufacturers on their respective websites.</p>
+    <p>The training Zip is composed of following main folders:</p>
+    <ul>
+    <li><b>EBV Documentation</b>: documentation and related information for EBV-IoT products</li>
+    <li><b>Firmware</b>: PSoC executable for IoTConnect demo</li>
+    <li><b>Infineon documentation</b>: documentation and related information for Infineon products</li>
+    <li><b>MobileApp</b>: source code for EBV-IoT Mobile Application</li>
+    <li><b>MTB Project</b>: ModusToolbox project used to build the IoTConnect Secured Solution</li>
+    <li><b>Scripts</b>: Python scripts for Optiga management</li>
+    <li><b>Sources</b>: source files for ModusToolbox projects to be used with the training</li>
+    <li><b>Template</b>: IoTConnect device template to upload to the cloud.</li>
+    <li><b>Tools</b>: installation files for the tools to be used during this training.</li>
+    </ul>
+    <p>In the &lsquo;root&rsquo; folder there are <b>training manual</b> and <b>training overview</b> in PDF .<p>
+  </details>
+  <details open>
+    <summary>
+      <h2>Important Notes</h2>
+    </summary>
+    <ul>
+      <li><b>All headings</b> are expandable and collapsable.</li>
+      <li>The reader should <b>combine</b> the <b>written instructions</b> with the <b>animations</b> (gif&#39;s) to follow/understand the
+      steps.</li>
+      <li><b>All images &amp; videos</b> can be <b>expanded to full size in a modal</b> by clicking on them.</li>
+      <li><b>All Code Snippets</b> can be <b>Copied</b> by clicking the <b>Copy Code</b> button in the top right corner of the snippet.</li>
+      <li>Steps titled <b><i>[optional]</i></b> can be skipped without consequence.</li>
+      <li>Steps titled <b><i>[recommended]</i></b> can be skipped but the consequence is typically less value in executing the lab steps.</li>
+      <li>Steps titled <b><i>[informative]</i></b> have no actionable steps but are typically useful nuggets of information.</li>
+      <li><b>Please read the requirements carefully</b> and ensure you meet them - otherwise you will likely encounter strange errors.</li>
+      <li>If you do <b>encounter any error&#39;s</b> - double <b>check the requirements</b> and verify manually you meet each one, such as
+      software versions.</li>
+      <li>For any extra documentation that may be useful but not particularly required (such as schematics or user manuals) always check the
+      useful links list below as they will likely be provided!</li>
+    </ul>
+  </details>
+  <details open="">
+    <summary>
+      Requirements
+    </summary>
+    <p>The following are the requirements of the lab - without first completing or acquiring the following list items - the lab will not be
+    achievable.</p>
+    <ul>
+      <li>Windows 10</li>
+      <li>My Renesas Account</li>
+      <li>RL78/G23 Indoor Air Sensor Board</li>
+      <li>DA16200 WiFi PMOD</li>
+      <li>E2 Lite</li>
+      <li>e2 studio v2022-10 or later</li>
+      <li>CC-RL Compiler v1.11.00 or later</li>
+    </ul>
+	</details>
+  <details open="">
+	<summary> 1.1. a Icon key identifiers </summary>
+	<p>Icons are used to notify about valuable information or point out important steps to follow. These icons are:</p>
+
+	<table style="width:100%">
+		<tr>
+			<th style="width:20px"><img style="width:30px" src="html_support_files/IconNote.png"></th>
+			<td><b>Note:</b> Provides valuable information about a specific topic</td>
+		</tr>
+		<tr>
+			<th style="width:20px"><img style="width:30px" src="html_support_files/IconTip.png"></th>
+			<td><b>Tip:</b> Indicates useful tips and techniques</td>
+		</tr>
+		<tr>
+			<th style="width:20px"><img style="width:30px" src="html_support_files/IconToDo.png"></th>
+			<td><b>To Do:</b> Highlights objectives to be completed and possible extensions</td>
+		</tr>
+		<tr>
+			<th style="width:20px"><img style="width:30px" src="html_support_files/IconAccomplished.png"></th>
+			<td><b>Task accomplished:</b> Highlights the expected results of the specific task</td>
+		</tr>
+		<tr>
+			<th style="width:20px"><img style="width:30px" src="html_support_files/IconImportant.png"></th>
+			<td><b>Important:</b> Indicates important information</td>
+		</tr>
+	</table>
+  </details>
+  
+  <details open="">
+	<summary> 1.1. Icon key identifiers </summary>
+	<p>Icons are used to notify about valuable information or point out important steps to follow. These icons are:</p>
+
+	<table style="width:90%" class="table_terminal">
+		<tr>
+			<th><img style="height:12px" src="html_support_files/IconTerminal.png"> ~</th>
+		</tr>
+		<tr>
+			<td>
+			<span class="consolas_green">user@computer_name</span>
+			<span class="consolas_orange"> ~</span><br>
+			<span class="consolas_black">$ optigatrust.exe<br>
+			bash: optigatrust.exe: command not found</span></th>
+			<br><br>
+			<span class="consolas_green">user@computer_name</span>
+			<span class="consolas_orange"> ~</span><br>
+		</tr>
+	</table>
+  </details>
+  
+  <details>
+    <summary>
+      Useful Links
+    </summary>
+    <p>The following are links which some may find useful for this excercise as well as some extra reading/reference material.</p>
+    <ol>
+      <li>
+        <a target="_blank" href="https://www.renesas.com/us/en/software-tool/e-studio">e<sup>2</sup>studio Landing page</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rl78-low-power-8-16-bit-mcus">RL78
+        Landing page</a>
+      </li>
+      <li>
+        <a target="_blank" href=
+        "https://www.renesas.com/us/en/oauth2/default/v1/authorize?client_id=0oa2ixjskq8o2hdJB357&amp;response_type=code&amp;scope=openid%20email%20phone%20profile%20MyRenesasUserInfo&amp;redirect_uri=https%3A//update.renesas.com/openid-connect/renesas-okta&amp;state=r2OKOkoEixzFgvWMlxp1caxs8C3PD5_5RflEtioYq9U">
+        My Renesas Registration Page</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart
+        Configurator User Manual (RL78 API Reference)</a>
+      </li>
+    </ol>
+  </details>
+  
+  
+		<!-- Prepare the pages modal images-->
+		<script>lab_templater.Prepare_modal();</script><div id="image-modal" class="modal">
+			<span class="modal-close-button">×</span>
+			<img class="modal-content" id="modal-image-area">
+			<div id="modal-caption"></div>
+		</div>
+
+		<!-- Button for going to the next page-->
+		<script>lab_templater.Generate_next_page_button("Next...");</script>
+		<!--button class="next-page-button" onclick="document.location=&#39;2-Configuration.html&#39;">Next...</button-->
+	</div>
+</body>
+</html>
