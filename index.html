@@ -58,49 +58,15 @@
     </ul>
     <p>In the &lsquo;root&rsquo; folder there are <b>training manual</b> and <b>training overview</b> in PDF .<p>
   </details>
-  <details open>
-    <summary>
-      <h2>Important Notes</h2>
-    </summary>
-    <ul>
-      <li><b>All headings</b> are expandable and collapsable.</li>
-      <li>The reader should <b>combine</b> the <b>written instructions</b> with the <b>animations</b> (gif&#39;s) to follow/understand the
-      steps.</li>
-      <li><b>All images &amp; videos</b> can be <b>expanded to full size in a modal</b> by clicking on them.</li>
-      <li><b>All Code Snippets</b> can be <b>Copied</b> by clicking the <b>Copy Code</b> button in the top right corner of the snippet.</li>
-      <li>Steps titled <b><i>[optional]</i></b> can be skipped without consequence.</li>
-      <li>Steps titled <b><i>[recommended]</i></b> can be skipped but the consequence is typically less value in executing the lab steps.</li>
-      <li>Steps titled <b><i>[informative]</i></b> have no actionable steps but are typically useful nuggets of information.</li>
-      <li><b>Please read the requirements carefully</b> and ensure you meet them - otherwise you will likely encounter strange errors.</li>
-      <li>If you do <b>encounter any error&#39;s</b> - double <b>check the requirements</b> and verify manually you meet each one, such as
-      software versions.</li>
-      <li>For any extra documentation that may be useful but not particularly required (such as schematics or user manuals) always check the
-      useful links list below as they will likely be provided!</li>
-    </ul>
-  </details>
+  
+  
   <details open="">
-    <summary>
-      Requirements
-    </summary>
-    <p>The following are the requirements of the lab - without first completing or acquiring the following list items - the lab will not be
-    achievable.</p>
-    <ul>
-      <li>Windows 10</li>
-      <li>My Renesas Account</li>
-      <li>RL78/G23 Indoor Air Sensor Board</li>
-      <li>DA16200 WiFi PMOD</li>
-      <li>E2 Lite</li>
-      <li>e2 studio v2022-10 or later</li>
-      <li>CC-RL Compiler v1.11.00 or later</li>
-    </ul>
-	</details>
-  <details open="">
-	<summary> 1.1. a Icon key identifiers </summary>
+	<summary><h2> Icon key identifiers </h2></summary>
 	<p>Icons are used to notify about valuable information or point out important steps to follow. These icons are:</p>
 
 	<table style="width:100%">
 		<tr>
-			<th style="width:20px"><img style="width:30px" src="html_support_files/IconNote.png"></th>
+			<th style="width:30px"><img style="width:30px" src="html_support_files/IconNote.png"></th>
 			<td><b>Note:</b> Provides valuable information about a specific topic</td>
 		</tr>
 		<tr>
@@ -121,6 +87,93 @@
 		</tr>
 	</table>
   </details>
+  <details open>
+    <summary><h2>Document conventions</h2></summary>
+        <p><em>Table 1: Document Conventions for the manual</em></p>
+        <table style="width:95%" class="table_ebv_main">
+        <tr>
+          <th width="180"><p>Convention</p></td>
+          <th><p>Usage</p></td>
+        </tr>
+        <tr>
+          <td><p><em>Italic</em></p></td>
+          <td><p>In document referenced link</p></td>
+        </tr>
+        <tr>
+          <td><p><strong><em>Italic-Bold</em></strong></p></td>
+          <td><p>Externally referenced link</p></td>
+        </tr>
+        <tr>
+          <td><p><strong>Bold</strong></p></td>
+          <td><p>Clickable menu item</p></td>
+        </tr>
+        <tr>
+          <td><p><strong><span style="border: black 2px solid">Bold Squared</span></strong></p></td>
+          <td><p>Clickable web page or menu item to be clicked during the tasks</p></td>
+        </tr>
+        <tr>
+          <td><p class="consolas_black">Consolas</p></td>
+          <td><p>Commands to be executed or messages displayed in terminal</p></td>
+        </tr>
+        </table>
+
+  </details>
+<details open>
+<summary><h2>Hardware prerequisites</h2></summary>
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+    <td><p><strong>Important:</strong> To run the complete workshop hands on part a computer with admin/root rights should be used. Windows OS is preferred, while for Linux should be able to run as well.</p></td>
+  </tr>
+</table>
+<p>Following evaluation hardware is going to be used during the training:</p>
+<ul>
+<li>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012)</li>
+<li>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</li>
+<li>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</li>
+<li>128x128 pixels OLED display (optional)</li>
+</ul>
+
+<p>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012)</p>
+<img class="modal-thumbnails" src="imgs/CY8CKIT-062S2-43012_0.png" alt>
+
+<p>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</p>
+<img class="modal-thumbnails" src="imgs/PASCO2EvSh.png" alt>
+
+<p>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</p>
+<img class="modal-thumbnails" src="imgs/OTM-Full.png" alt>
+
+<p>The stacked bundle:</p>
+<img class="modal-thumbnails" src="imgs/InfineonDemo Full.png" alt>
+
+
+</details>
+<details open>
+  <summary><h2>Software prerequisites</h2></summary>
+  
+  <h3>1.1.1 Installing ModusToolbox<sup>TM</sup></h3>
+  <p>Please refer to the Infineon&rsquo;s <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox<sup>TM</sup> Software</em></strong></a> pages for application download and &ldquo;Installation guide&rdquo; (<a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>link</em></strong></a>).</p>
+  <table style="width:100%">
+    <tr>
+      <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
+      <td><p><strong>Note:</strong> It is strongly recommended to install the tool into the root of any of your disk drives e.g. &ldquo;D:/Infineon&rdquo;. Please do keep the name as short as possible and do not use spaces or any special characters.</p></td>
+    </tr>
+  </table>
+  <p>Default location of installation directory for the Eclipse IDE is:</p>
+  <p><em>&lt;install_path&gt;\ModusToolbox\ide_&lt;version&gt;\eclipse\</em></p>
+  <table>
+  <tbody>
+  <tr>
+  <td width="613">
+  <p><strong>Important: </strong>If the software is installed in any other than default location you have to set an environment variable. Please follow the <strong><em>ModusToolbox installation guide</em></strong>.</p>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  <p>After successful installation you should be able to see the tools installed in your start menu under &ldquo;ModusToolbox 3.1 (Current user)&rdquo;.</p>
+
+</details>
+
   
   <details open="">
 	<summary> 1.1. Icon key identifiers </summary>
@@ -141,6 +194,42 @@
 			<span class="consolas_orange"> ~</span><br>
 		</tr>
 	</table>
+  </details>
+  <details open="">
+    <summary>
+      Requirements
+    </summary>
+    <p>The following are the requirements of the lab - without first completing or acquiring the following list items - the lab will not be
+    achievable.</p>
+    <ul>
+      <li>Windows 10</li>
+      <li>My Renesas Account</li>
+      <li>RL78/G23 Indoor Air Sensor Board</li>
+      <li>DA16200 WiFi PMOD</li>
+      <li>E2 Lite</li>
+      <li>e2 studio v2022-10 or later</li>
+      <li>CC-RL Compiler v1.11.00 or later</li>
+    </ul>
+	</details>
+  <details open>
+    <summary>
+      <h2>Important Notes</h2>
+    </summary>
+    <ul>
+      <li><b>All headings</b> are expandable and collapsable.</li>
+      <li>The reader should <b>combine</b> the <b>written instructions</b> with the <b>animations</b> (gif&#39;s) to follow/understand the
+      steps.</li>
+      <li><b>All images &amp; videos</b> can be <b>expanded to full size in a modal</b> by clicking on them.</li>
+      <li><b>All Code Snippets</b> can be <b>Copied</b> by clicking the <b>Copy Code</b> button in the top right corner of the snippet.</li>
+      <li>Steps titled <b><i>[optional]</i></b> can be skipped without consequence.</li>
+      <li>Steps titled <b><i>[recommended]</i></b> can be skipped but the consequence is typically less value in executing the lab steps.</li>
+      <li>Steps titled <b><i>[informative]</i></b> have no actionable steps but are typically useful nuggets of information.</li>
+      <li><b>Please read the requirements carefully</b> and ensure you meet them - otherwise you will likely encounter strange errors.</li>
+      <li>If you do <b>encounter any error&#39;s</b> - double <b>check the requirements</b> and verify manually you meet each one, such as
+      software versions.</li>
+      <li>For any extra documentation that may be useful but not particularly required (such as schematics or user manuals) always check the
+      useful links list below as they will likely be provided!</li>
+    </ul>
   </details>
   
   <details>
