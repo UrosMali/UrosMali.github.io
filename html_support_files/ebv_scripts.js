@@ -63,7 +63,7 @@ class Lab_templater {
 
         this.#Append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
     }
-    /* End of function*/
+    /* End of function*/ 
 
     /* Function to prepare pages modal*/
     Prepare_modal() {

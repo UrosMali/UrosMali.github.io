@@ -239,7 +239,7 @@ pre {
 /* Counter settings */
 body { 
   counter-reset: h1 h2 h3 h4; 
-}
+} 
 h1 { 
   counter-increment: h1; 
   counter-reset: h2 h3 h4;
@@ -416,7 +416,7 @@ h4 {
 }
 
 .modal-close-button:hover,
-.modal-close-button:focus {
+.modal-close-button:focus { 
   color: var(--modal-close-button-hover-colour);
   text-decoration: none;
   cursor: pointer;
