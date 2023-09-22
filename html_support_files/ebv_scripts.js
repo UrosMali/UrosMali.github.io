@@ -12,18 +12,19 @@ const lab_title = "EBV-IoT - Infineon & Avnet IoTConnect Secure Cloud connection
 * ...
 */
 const pages_in_lab = [
-    "index.html", "Introduction",
-    "2-Main_system_components.html", "2. Main system components",
-    "3_System_setup.html", "3. System setup using evaluation hardware",
-    ".html", "4. Hardware configuration",
-    ".html", "5. EBV IoTConnect – Solution Accelerator Software",
-    ".html", "6. Task 1: PSoC programming and debugging – Hello world",
-    ".html", "7. Task 2: PSoC programming and debugging – Adding sensors",
-    ".html", "8. Task 3: OPTIGA provisioning for IoTConnect Cloud",
-    ".html", "9. Task 4: Create a device in IoTConnect Cloud",
-    ".html", "10. Task 5: Getting hardware ready for IoTConnect cloud",
-    ".html", "11. Task 6: Connecting the demo to IoTConnect Cloud	67",
-    ".html", "12. Task 7: Remote access from EBV Mobile App"
+    "index.html", "Introduction",   
+    "2-Prerequisites.html", "2.	Prerequisites",
+    "3-Main_system_components.html", "3. Main system components",    
+    "4_System_setup.html", "4. System setup using evaluation hardware",
+    ".html", "5. Hardware configuration",
+    ".html", "6. EBV IoTConnect – Solution Accelerator Software",
+    ".html", "7. Task 1: PSoC programming and debugging – Hello world",
+    ".html", "8. Task 2: PSoC programming and debugging – Adding sensors",
+    ".html", "9. Task 3: OPTIGA provisioning for IoTConnect Cloud",
+    ".html", "10. Task 4: Create a device in IoTConnect Cloud",
+    ".html", "11. Task 5: Getting hardware ready for IoTConnect cloud",
+    ".html", "12. Task 6: Connecting the demo to IoTConnect Cloud	67",
+    ".html", "13. Task 7: Remote access from EBV Mobile App"
 
 ];
 
@@ -36,6 +37,7 @@ const pages_in_lab = [
 /** Class for fulfilling the templating requirements of lab creation */
 class Lab_templater {
     #next_page_name; /* Variable used to retain the next page document name for creation of next page button*/
+    #prev_page_name; /* Variable used to retain the previous page document name for creation of previous page button*/
 
     constructor() {
         /* Do Nothing*/
@@ -62,6 +64,19 @@ class Lab_templater {
         var html = `<button class="next-page-button" onclick="document.location='` + this.#next_page_name + `'">` + txt + `</button>`;
 
         this.#Append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
+    }
+    /* End of function*/ 
+
+    /* Function to popuate the next page button - txt = text inside button
+    *  Note before calling this function, the Generate_sidenav function must be called.
+    */
+    Generate_prev_next_page_button(txt_prev, txt_next) {
+        var html = `<button class="next-page-button" onclick="document.location='` + this.#prev_page_name + `'">` + txt_prev + `</button>
+        <button class="next-page-button" onclick="document.location='` + this.#next_page_name + `'">` + txt_next + `</button>`;
+
+        this.#Append_html(document.getElementsByClassName('main-content')[0], html); /* Append html to the end of main-content*/
+        /*this.#Append_html(document.getElementsByClassName('flex-parent')[0], html); /* Append html to the end of main-content*/
+        /*this.#Append_html(document.getElementsByTagName('div')[0], html); /* Append html to body*/
     }
     /* End of function*/ 
 
@@ -155,6 +170,14 @@ class Lab_templater {
                 }
                 else {
                     this.#next_page_name = pages_in_lab[index + 2]; /* Save the next page for the next page button*/
+                }
+
+                /* If we are on the first page*/
+                if ((index) == 0) {
+                    this.#prev_page_name = pages_in_lab[0]; /* Save the first page for the next page button*/
+                }
+                else {
+                    this.#prev_page_name = pages_in_lab[index-2]; /* Save the next page for the next page button*/
                 }
             }
             else {

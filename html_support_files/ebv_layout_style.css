@@ -92,9 +92,12 @@ html {
   /* Next page button*/
   --next-page-button-margin-top: 2.5%;
   --next-page-button-margin-bottom: 2.5%;
+  --next-page-button-margin-right: 20px;
   --next-page-button-padding-x: 16px;
-  --next-page-button-padding-y: 32px;
+  --next-page-button-padding-y: 16px;
   --next-page-button-font-size: 24px;
+  --next-page-button-width: 200px;
+
 
   /* Copy code button*/
   --copy-code-border-radius: 5px;
@@ -340,10 +343,14 @@ h4 {
 
 .next-page-button {
   margin-left: auto;
-  margin-right: auto;
+  margin-right: var(--next-page-button-margin-right);;
   margin-top: var(--next-page-button-margin-top);
   margin-bottom: var(--next-page-button-margin-bottom);
-  display: block;
+  /*display: block;*/
+  /*display: flex;*/
+  width: var(--next-page-button-width);
+  display: inline-block;
+  align-items: center;
   border: none;
   padding: var(--next-page-button-padding-x) var(--next-page-button-padding-y);
   text-align: center;
@@ -355,10 +362,27 @@ h4 {
   font-weight: bold;
   border-radius: 8px;
   border: 2px solid var(--black);
+  justify-content: center;
 }
 
 .next-page-button:hover {
   opacity: 0.7;
+}
+
+.buttons_group {
+  display: flex;
+  /* margin-top: 400px; */
+  height: 500px;
+  align-items: center;
+}
+
+.flex-parent {
+  /*display: flex;*/
+  display: inline-block;
+}
+
+.jc-center {
+  justify-content: center;
 }
 
 /*Modal Image*/
@@ -494,9 +518,6 @@ h4 {
   opacity: 0.7;
 }
 
-table {
-
-}
 
 .table_ebv_main {
   border:1px solid black;

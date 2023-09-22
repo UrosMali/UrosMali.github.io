@@ -121,212 +121,74 @@
         </table>
 
   </details>
-<details open>
-<summary><h2>Hardware prerequisites</h2></summary>
-<table style="width:100%">
-  <tr>
-    <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
-    <td><p><strong>Important:</strong> To run the complete workshop hands on part a computer with admin/root rights should be used. Windows OS is preferred, while for Linux should be able to run as well.</p></td>
-  </tr>
-</table>
-<p>Following evaluation hardware is going to be used during the training:</p>
-<ul>
-<li>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012)</li>
-<li>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</li>
-<li>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</li>
-<li>128x128 pixels OLED display (optional)</li>
-</ul>
 
-<p>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012)</p>
-<img class="modal-thumbnails" src="imgs/CY8CKIT-062S2-43012_0.png" alt>
-
-<p>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</p>
-<img class="modal-thumbnails" src="imgs/PASCO2EvSh.png" alt>
-
-<p>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</p>
-<img class="modal-thumbnails" src="imgs/OTM-Full.png" alt>
-
-<p>The stacked bundle:</p>
-<img class="modal-thumbnails" src="imgs/InfineonDemoFull.png" alt>
-
-
-</details>
-<details open>
-  <summary><h2>Software prerequisites</h2></summary>
-  
-  <h3>Installing ModusToolbox<sup>TM</sup></h3>
-  <p>Please refer to the Infineon&rsquo;s <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox<sup>TM</sup> Software</em></strong></a> pages for application download and &ldquo;Installation guide&rdquo; (<a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>link</em></strong></a>).</p>
-  <table style="width:100%">
-    <tr>
-      <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
-      <td><p><strong>Note:</strong> It is strongly recommended to install the tool into the root of any of your disk drives e.g. &ldquo;D:/Infineon&rdquo;. Please do keep the name as short as possible and do not use spaces or any special characters.</p></td>
-    </tr>
-  </table>
-  <p>Default location of installation directory for the Eclipse IDE is:</p>
-  <p><em>&lt;install_path&gt;\ModusToolbox\ide_&lt;version&gt;\eclipse\</em></p>
-  <table style="width:100%">
-    <tr>
-      <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
-      <td><p><strong>Important:</strong> If the software is installed in any other than default location you have to set an environment variable. Please follow the <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox installation guide</em></strong></a>.</p></td>
-    </tr>
-  </table>
-  
-  <p>To check for ModusToolBox environmental variable setting, under Windows <strong><span style="border: black 1px solid">Start menu</span></strong> or <strong><span style="border: black 1px solid">Windows search</span></strong> type in &ldquo;env&rdquo;&hellip; . The <strong>Edit the system variables</strong> should soon be listed on top as shown on Figure bellow.</p>
-  <img class="modal-thumbnails" src="screen_shots/WinMenu-Env.png" alt>
-  
-  <p>Now click on <strong><span style="border: black 1px solid">Environmental Variables</span></strong>... </p> 
-
-  <img class="modal-thumbnails" src="screen_shots/SystemProperties.png" alt>
-
-  <p>and look for “System Variable” <a class="consolas_black">CY_TOOLS_PATHS</a>. </p>
-  <img class="modal-thumbnails" src="screen_shots/EnvironmentVariables.png" alt>
-
-  <p>Please proceed accordingly:</p>
-  <ol type="A">
-  <li>If the variable does not exist, then in &ldquo;Environment Variables&rdquo; window click <strong><span style="border: black 1px solid">New</span></strong>, then in new pop-up window &ldquo;New System Variable&rdquo; at &ldquo;Variable name&rdquo; type <a class="consolas_black">CY_TOOLS_PATHS</a> and at &ldquo;Variable value&rdquo; put your ModusToolBox path or browse using <strong><span style="border: black 1px solid">Browse Directory</span></strong>. Then click <strong><span style="border: black 1px solid">OK</span></strong> as well as click <strong><span style="border: black 1px solid">OK</span></strong> in &ldquo;Environment Variables&rdquo; window.</li>
-  <img class="modal-thumbnails" src="screen_shots/NewSystemVariable.png" alt>
-  <li>If the variable exists, then in &ldquo;Environment Variables&rdquo; window click <strong><span style="border: black 1px solid">Edit</span></strong>, then in new pop-up window &ldquo;Edit System Variable&rdquo; check if &ldquo;Variable name&rdquo; type <a class="consolas_black">CY_TOOLS_PATHS</a> and &ldquo;Variable value&rdquo; matches to your ModusToolBox path or browse using <strong><span style="border: black 1px solid">Browse Directory</span></strong>. Then click <strong><span style="border: black 1px solid">OK</span></strong> as well as click <strong><span style="border: black 1px solid">OK</span></strong> in &ldquo;Environment Variables&rdquo; window.</li>
-  <img class="modal-thumbnails" src="screen_shots/EditSystemVariable.png" alt>
-  </ol>
-  <table style="width:100%">
-  <tr>
-    <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
-    <td><p><strong>Important:</strong> Very important &ndash; use <strong>forward</strong> slashes. <strong>/ - ok</strong>; \ - not ok</p></td>
-  </tr>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <p>After successful installation you should be able to see the tools installed in your start menu under &ldquo;ModusToolbox 3.1 (Current user)&rdquo;.</p>
-  <img class="modal-thumbnails" style="width: 100px;" src="screen_shots/WinMenu-IDE.png" alt>
-
-  <p>If clicked on <strong><span style="border: black 1px solid">Eclipse IDE for ModusToolBox 3.1</span></strong> you will see a &ldquo;Launcher&ldquo; window popping out.</p>
-
-<img class="modal-thumbnails" src="screen_shots/IDELauncher.png" alt>
-  </ol>
-  <table style="width:100%">
-  <tr>
-    <th style="width:30px"><img style="width:40px" src="html_support_files/IconAccomplished.png"></th>
-    <td><p><strong>Important:</strong> If you can run &ldquo;Eclipse IDE for ModusToolbox<sup>TM</sup> Launcher&rdquo; and a workspace selection window is opening, you are good to proceed to a next step.</p></td>
-  </tr>
-</table>
-  
-  <h3>Running &ldquo;modus-shell&rdquo;</h3>
-  <p>The easiest way of running &ldquo;modus-shell&rdquo; is to look for it under Windows search by typing in &ldquo;modus&rdquo;&hellip; . The application should soon be listed on top as shown on <em>Figure 3</em>. Click on the &ldquo;App&rdquo; to run the application.</p>
-
-</details>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <details open="">
-	<summary> 1.1. Icon key identifiers </summary>
-	<p>Icons are used to notify about valuable information or point out important steps to follow. These icons are:</p>
-
-	<table style="width:90%" class="table_terminal">
-		<tr>
-			<th><img style="height:12px" src="html_support_files/IconTerminal.png"> ~</th>
-		</tr>
-		<tr>
-			<td>
-			<span class="consolas_green">user@computer_name</span>
-			<span class="consolas_orange"> ~</span><br>
-			<span class="consolas_black">$ optigatrust.exe<br>
-			bash: optigatrust.exe: command not found</span></th>
-			<br><br>
-			<span class="consolas_green">user@computer_name</span>
-			<span class="consolas_orange"> ~</span><br>
-		</tr>
-	</table>
+  <details open> 
+    <summary><h2>Basic requirements</h2></summary>
+    <p>Following will be required during the training:</p>
+    <ol>
+    <li>A computer with Windows 10 or above, or Linux</li>
+    <li>Android or Apple device to install mobile app (it also enables to seamlessly follow the training using online manual)</li>
+    <li>Hardware requirements:
+    <ol type="A">
+    <li>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012)</li>
+    <li>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</li>
+    <li>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</li>
+    <li>128x128 pixels OLED display (optional)</li>
+    </ol>
+    </li>
+    <li>Software requirements:
+    <ol type="A">
+    <li>ModusToolBox 3.1 or above</li>
+    <li>Python (modus-shell may be used) with installed libraries</li>
+    </ol>
+    </li>
+    <li>Avnet IoTConnect cloud platform account</li>
+    </ol>
   </details>
 
-
-
-
-  <details open="">
-    <summary>
-      Requirements
-    </summary>
-    <p>The following are the requirements of the lab - without first completing or acquiring the following list items - the lab will not be
-    achievable.</p>
-    <ul>
-      <li>Windows 10</li>
-      <li>My Renesas Account</li>
-      <li>RL78/G23 Indoor Air Sensor Board</li>
-      <li>DA16200 WiFi PMOD</li>
-      <li>E2 Lite</li>
-      <li>e2 studio v2022-10 or later</li>
-      <li>CC-RL Compiler v1.11.00 or later</li>
-    </ul>
-	</details>
+   
   <details open>
     <summary>
-      <h2>Important Notes</h2>
+      <h2>Notes</h2>
     </summary>
-    <ul>
-      <li><b>All headings</b> are expandable and collapsable.</li>
-      <li>The reader should <b>combine</b> the <b>written instructions</b> with the <b>animations</b> (gif&#39;s) to follow/understand the
-      steps.</li>
-      <li><b>All images &amp; videos</b> can be <b>expanded to full size in a modal</b> by clicking on them.</li>
-      <li><b>All Code Snippets</b> can be <b>Copied</b> by clicking the <b>Copy Code</b> button in the top right corner of the snippet.</li>
-      <li>Steps titled <b><i>[optional]</i></b> can be skipped without consequence.</li>
-      <li>Steps titled <b><i>[recommended]</i></b> can be skipped but the consequence is typically less value in executing the lab steps.</li>
-      <li>Steps titled <b><i>[informative]</i></b> have no actionable steps but are typically useful nuggets of information.</li>
-      <li><b>Please read the requirements carefully</b> and ensure you meet them - otherwise you will likely encounter strange errors.</li>
-      <li>If you do <b>encounter any error&#39;s</b> - double <b>check the requirements</b> and verify manually you meet each one, such as
-      software versions.</li>
-      <li>For any extra documentation that may be useful but not particularly required (such as schematics or user manuals) always check the
-      useful links list below as they will likely be provided!</li>
-    </ul>
-  </details>
-  
-  <details>
-    <summary>
-      Useful Links
-    </summary>
-    <p>The following are links which some may find useful for this excercise as well as some extra reading/reference material.</p>
-    <ol>
-      <li>
-        <a target="_blank" href="https://www.renesas.com/us/en/software-tool/e-studio">e<sup>2</sup>studio Landing page</a>
-      </li>
-      <li>
-        <a target="_blank" href="https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rl78-low-power-8-16-bit-mcus">RL78
-        Landing page</a>
-      </li>
-      <li>
-        <a target="_blank" href=
-        "https://www.renesas.com/us/en/oauth2/default/v1/authorize?client_id=0oa2ixjskq8o2hdJB357&amp;response_type=code&amp;scope=openid%20email%20phone%20profile%20MyRenesasUserInfo&amp;redirect_uri=https%3A//update.renesas.com/openid-connect/renesas-okta&amp;state=r2OKOkoEixzFgvWMlxp1caxs8C3PD5_5RflEtioYq9U">
-        My Renesas Registration Page</a>
-      </li>
-      <li>
-        <a target="_blank" href="https://www.renesas.com/us/en/document/man/smart-configurator-users-manual-rl78-api-reference">Smart
-        Configurator User Manual (RL78 API Reference)</a>
-      </li>
-    </ol>
+    
+<p>Please follow the steps carefully!</p>
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
+    <td><p><strong>Note:</strong> Some of the steps marked A, B, C&hellip; have same outcome, just different way to get there.</p></td>
+  </tr>
+</table>
+
+
+<p>There is online version of the training manual available you can access during the hands-on using your mobile phone or tablet. It improves pace as you do not have to switch between applications. Use following QR code to access the online manual.</p>
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
+    <td><p><strong>Note:</strong> Only hands-on relevant sections are available online.</p></td>
+  </tr>
+</table>
+
+<p>Not all the steps are required to follow in full. Based of your preferences, you can skip some steps and follow the tips to overtake some parts and allows you to focus more on a topic of your choice.</p>
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconTip.png"></th>
+    <td><p><strong>Tip:</strong> Tips are providing you information on steps you can eventually skip and focus more on topics of your choice.</p></td>
+  </tr>
+</table>
+</details>
+
+
+<details open>
+<summary><h2>Links</h2></summary>
+<p>Following please find additional links you may find useful or is being used as extra reading material:</p>
+<ol>
+<li><strong><em><a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/">ModusToolBox landing page</a></em></strong></li>
+<li><strong><em><a href="https://www.infineon.com/cms/en/myInfineon/benefits/">MyInfineon landing page</a></em></strong></li>
+<li><strong><em><a href="https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/psoc-62/">PSoC<sup>TM</sup> landing page</a></em></strong></li>
+<li><strong><em><a href="https://www.infineon.com/cms/en/product/sensor/">Xensiv<sup>TM</sup> landing page</a></em></strong></li>
+<li><strong><em><a href="https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/">OPTIGA<sup>TM</sup> Trust M landing page</a></em></strong></li>
+</ol>
   </details>
   
   
@@ -335,7 +197,7 @@
 			<span class="modal-close-button">×</span>
 			<img class="modal-content" id="modal-image-area">
 			<div id="modal-caption"></div>
-		</div>
+		
 
 		<!-- Button for going to the next page-->
 		<script>lab_templater.Generate_next_page_button("Next...");</script>

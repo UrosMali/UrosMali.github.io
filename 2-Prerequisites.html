@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html data-kantu="1">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- Useful for tablet and mobile based browsing-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Title of the page (not necessarily the lab) - for reference only, not displayed on the page-->
+	<title>EBV-IoT - Introduction</title>
+  <link rel="icon" type="image/x-icon" href="https://www.avnet.com/wps/contenthandler/!ut/p/digest!-FCm2sisriEGGFffr1BxTg/dav/fs-type1/themes/Avnet_Stores/css/images/ebv/favicon.ico">
+	<!-- CSS template stylesheet must be linked here-->
+	<link href="./html_support_files/ebv_layout_style.css" rel="stylesheet" type="text/css">
+	<!-- Javascript based lab templating helper must be placed here-->
+	<script type="text/javascript" src="./html_support_files/ebv_scripts.js"></script>
+ <style>
+    body {
+      /* Set counter for h1 manually since each section is own html page. Set Section#-1*/
+      counter-reset: h1 1 h2 h3 h4;
+    }
+    </style>
+</head>
+
+<body>
+	<link href='https://fonts.googleapis.com/css?family=Hanken Grotesk' rel='stylesheet'>
+
+  <!-- Populate the page header (banner, title & navigation menu)-->
+  <script>lab_templater.Generate_header();</script> 
+	
+	<!-- Begin the main content of the page-->
+    <div class="main-content">
+      <details open>
+        <summary style="list-style: none;text-align: center;font-weight: bolder;">EBV-IoT - Infineon &amp; Avnet IoTConnect Secure Cloud connected solution - <br>Training manual</summary>
+      </details>
+
+
+
+
+
+<details open>
+<summary><h1>Prerequisites</h1></summary>
+<p>Following please find hardware and software prerequisites.</p>
+</details>
+<details open>
+<summary><h2>Hardware prerequisites</h2></summary>
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+    <td><p><strong>Important:</strong> To run the complete workshop hands on part a computer with admin/root rights should be used. Windows OS is preferred, while for Linux should be able to run as well.</p></td>
+  </tr>
+</table>
+<p>Following evaluation hardware is going to be used during the training:</p>
+<ul>
+<li>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012)</li>
+<li>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</li>
+<li>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</li>
+<li>128x128 pixels OLED display (optional)</li>
+</ul>
+
+<p>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012)</p>
+<img class="modal-thumbnails" src="imgs/CY8CKIT-062S2-43012_0.png" alt>
+
+<p>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</p>
+<img class="modal-thumbnails" src="imgs/PASCO2EvSh.png" alt>
+
+<p>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</p>
+<img class="modal-thumbnails" src="imgs/OTM-Full.png" alt>
+
+<p>The stacked bundle:</p>
+<img class="modal-thumbnails" src="imgs/InfineonDemoFull.png" alt>
+
+
+</details>
+<details open>
+  <summary><h2>Software prerequisites</h2></summary>
+  
+  <h3>Installing ModusToolbox<sup>TM</sup></h3>
+  <p>Please refer to the Infineon&rsquo;s <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox<sup>TM</sup> Software</em></strong></a> pages for application download and &ldquo;Installation guide&rdquo; (<a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>link</em></strong></a>).</p>
+  <table style="width:100%">
+    <tr>
+      <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
+      <td><p><strong>Note:</strong> It is strongly recommended to install the tool into the root of any of your disk drives e.g. &ldquo;D:/Infineon&rdquo;. Please do keep the name as short as possible and do not use spaces or any special characters.</p></td>
+    </tr>
+  </table>
+  <p>Default location of installation directory for the Eclipse IDE is:</p>
+  <p><em>&lt;install_path&gt;\ModusToolbox\ide_&lt;version&gt;\eclipse\</em></p>
+  <table style="width:100%">
+    <tr>
+      <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+      <td><p><strong>Important:</strong> If the software is installed in any other than default location you have to set an environment variable. Please follow the <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox installation guide</em></strong></a>.</p></td>
+    </tr>
+  </table>
+  
+  <p>To check for ModusToolBox environmental variable setting, under Windows <strong><span style="border: black 1px solid">Start menu</span></strong> or <strong><span style="border: black 1px solid">Windows search</span></strong> type in &ldquo;env&rdquo;&hellip; . The <strong>Edit the system variables</strong> should soon be listed on top as shown on Figure bellow.</p>
+  <img class="modal-thumbnails" src="screen_shots/WinMenu-Env.png" alt>
+  
+  <p>Now click on <strong><span style="border: black 1px solid">Environmental Variables</span></strong>... </p> 
+
+  <img class="modal-thumbnails" src="screen_shots/SystemProperties.png" alt>
+
+  <p>and look for “System Variable” <a class="consolas_black">CY_TOOLS_PATHS</a>. </p>
+  <img class="modal-thumbnails" src="screen_shots/EnvironmentVariables.png" alt>
+
+  <p>Please proceed accordingly:</p>
+  <ol type="A">
+  <li>If the variable does not exist, then in &ldquo;Environment Variables&rdquo; window click <strong><span style="border: black 1px solid">New</span></strong>, then in new pop-up window &ldquo;New System Variable&rdquo; at &ldquo;Variable name&rdquo; type <a class="consolas_black">CY_TOOLS_PATHS</a> and at &ldquo;Variable value&rdquo; put your ModusToolBox path or browse using <strong><span style="border: black 1px solid">Browse Directory</span></strong>. Then click <strong><span style="border: black 1px solid">OK</span></strong> as well as click <strong><span style="border: black 1px solid">OK</span></strong> in &ldquo;Environment Variables&rdquo; window.</li>
+  <img class="modal-thumbnails" src="screen_shots/NewSystemVariable.png" alt>
+  <li>If the variable exists, then in &ldquo;Environment Variables&rdquo; window click <strong><span style="border: black 1px solid">Edit</span></strong>, then in new pop-up window &ldquo;Edit System Variable&rdquo; check if &ldquo;Variable name&rdquo; type <a class="consolas_black">CY_TOOLS_PATHS</a> and &ldquo;Variable value&rdquo; matches to your ModusToolBox path or browse using <strong><span style="border: black 1px solid">Browse Directory</span></strong>. Then click <strong><span style="border: black 1px solid">OK</span></strong> as well as click <strong><span style="border: black 1px solid">OK</span></strong> in &ldquo;Environment Variables&rdquo; window.</li>
+  <img class="modal-thumbnails" src="screen_shots/EditSystemVariable.png" alt>
+  </ol>
+  <table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+    <td><p><strong>Important:</strong> Very important &ndash; use <strong>forward</strong> slashes. <strong>/ - ok</strong>; \ - not ok</p></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>After successful installation you should be able to see the tools installed in your start menu under &ldquo;ModusToolbox 3.1 (Current user)&rdquo;.</p>
+  <img class="modal-thumbnails" style="width: 100px;" src="screen_shots/WinMenu-IDE.png" alt>
+
+  <p>If clicked on <strong><span style="border: black 1px solid">Eclipse IDE for ModusToolBox 3.1</span></strong> you will see a &ldquo;Launcher&ldquo; window popping out.</p>
+
+<img class="modal-thumbnails" src="screen_shots/IDELauncher.png" alt>
+  </ol>
+  <table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconAccomplished.png"></th>
+    <td><p><strong>Important:</strong> If you can run &ldquo;Eclipse IDE for ModusToolbox<sup>TM</sup> Launcher&rdquo; and a workspace selection window is opening, you are good to proceed to a next step.</p></td>
+  </tr>
+</table>
+</details>
+<details open>
+  <summary><h3>Running &ldquo;modus-shell&rdquo;</h3></summary>
+  <p>The easiest way of running &ldquo;modus-shell&rdquo; is to look for it under Windows search by typing in &ldquo;modus&rdquo;&hellip;. 
+    The application should soon be listed on top as shown on figure bellow. Click on the &ldquo;App&rdquo; to run the application.</p>
+
+    <img class="modal-thumbnails" style="width: 250px;" src="screen_shots/WinMenu-mod.png" alt>
+    <p>Next step is to check whether &ldquo;optigatrust&rdquo; Python module is installed. Type &ldquo;<a class="consolas_black"></a>optigatrust.exe</a>&rdquo; into the terminal. 
+      If your replay is &ldquo;<a class="consolas_black"></a>bash: optigatrust.exe: command not found</a>&rdquo;, please proceed to Sub-section <em>1.5.3</em><em>Installing &ldquo;optigatrust&rdquo; Python module</em> otherwise proceed to Sub-section <em>1.5.4</em><em>Installing other Python modules</em><em>.</em></p>
+
+
+
+
+
+
+
+	<table style="width:90%" class="table_terminal">
+		<tr>
+			<th><img style="height:12px" src="html_support_files/IconTerminal.png"> ~</th>
+		</tr>
+		<tr>
+			<td>
+			<span class="consolas_green">user@computer_name</span>
+			<span class="consolas_orange"> ~</span><br>
+			<span class="consolas_black">$ optigatrust.exe<br>
+			bash: optigatrust.exe: command not found</span></th>
+			<br><br>
+			<span class="consolas_green">user@computer_name</span>
+			<span class="consolas_orange"> ~</span><br>
+		</tr>
+	</table>
+  </details>
+
+
+
+ 
+		<!-- Prepare the pages modal images-->
+		<script>lab_templater.Prepare_modal();</script>
+    <div id="image-modal" class="modal">
+			<span class="modal-close-button">×</span>
+			<img class="modal-content" id="modal-image-area">
+			<div id="modal-caption"></div>
+		</div>
+
+		<!-- Button for going to the next page-->
+		<!--<div style="display: flex;justify-content: center;flex-direction: row;">-->
+      <script>lab_templater.Generate_prev_next_page_button("Previous...", "Next...");</script>
+      <div class="flex-parent jc-center">
+        
+        
+      </div>
+		</div>
+</body>
+</html>
