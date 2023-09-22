@@ -53,17 +53,18 @@ html {
   --paragraph-font-size: medium;
 
   /* Banner*/
-  --logo-width: default;
-  --logo-height: 60%;
-  --logo-margin-top: 15px;
+  --logo-width: Default;
+  --logo-height: 45px;
+  --logo-margin-top: 20px;
   --logo-margin-right: 1%;
-  --banner-height: 120px;
+  /*--banner-height: 200px;*/
+  --banner-height: 90px;
   --banner-content-colour: white;
   --banner-heading-max-width: 50%;
   --banner-heading-margin-left: 3%;
   --banner-heading-margin-top: 1.5%;
   --banner-menu-button-margin-left: 20px;
-  --banner-menu-button-margin-top: 25px;
+  --banner-menu-button-margin-top: 15px;
   --banner-menu-button-font-size: 40px;
 
   /* Modal*/
@@ -111,7 +112,7 @@ html {
     --main-content-margin-right: 2%;
 
     /* Banner*/
-    --logo-height: 50%;
+    /*--logo-height: 40px;*/
 
     /* Modal*/
     --modal-thumbnail-max-width: 30%;
@@ -135,7 +136,7 @@ html {
     --main-content-margin-right: 2%;
 
     /* Banner*/
-    --logo-height: 35%;
+    /*--logo-height: 40px;*/
 
     /* Modal*/
     --modal-thumbnail-max-width: 40%;
@@ -161,7 +162,7 @@ html {
     --title-font-size: medium;
 
     /* Banner*/
-    --logo-height: 20%;
+    /*--logo-height: 30px;*/
 
     /* Modal*/
     --modal-thumbnail-max-width: 60%;
@@ -266,7 +267,15 @@ h2::before {
 h3 { 
   counter-increment: h3; 
   counter-reset: h4;
+  font-size: var(--h3-font-size);
+  font-weight: bold;
+  color: var(--ebv-blue);
+  font-family:'Hanken Grotesk';
 } 
+
+h3::before {
+  content: counter(h1) "." counter(h2) "." counter(h3) ". ";
+}
 h4 { 
   counter-increment: h4; 
 }

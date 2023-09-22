@@ -24,10 +24,13 @@
 	<link href='https://fonts.googleapis.com/css?family=Hanken Grotesk' rel='stylesheet'>
 
   <!-- Populate the page header (banner, title & navigation menu)-->
-  <script>lab_templater.Generate_header();</script>
+  <script>lab_templater.Generate_header();</script> 
 	
 	<!-- Begin the main content of the page-->
     <div class="main-content">
+      <details open>
+        <summary style="list-style: none;text-align: center;font-weight: bolder;">EBV-IoT - Infineon &amp; Avnet IoTConnect Secure Cloud connected solution - <br>Training manual</summary>
+      </details>
 	<details open="">
     <!-- We do not use h1 for introduction to keep it as "details"-->
     <summary><h1>Introduction</h1></summary>
@@ -100,7 +103,7 @@
           <td><p>In document referenced link</p></td>
         </tr>
         <tr>
-          <td><p><strong><em>Italic-Bold</em></strong></p></td>
+          <td><p><strong><em><u>Italic-Bold</u></em></strong></p></td>
           <td><p>Externally referenced link</p></td>
         </tr>
         <tr>
@@ -108,7 +111,7 @@
           <td><p>Clickable menu item</p></td>
         </tr>
         <tr>
-          <td><p><strong><span style="border: black 2px solid">Bold Squared</span></strong></p></td>
+          <td><p><strong><span style="border: black 1px solid">Bold Squared</span></strong></p></td>
           <td><p>Clickable web page or menu item to be clicked during the tasks</p></td>
         </tr>
         <tr>
@@ -144,14 +147,14 @@
 <img class="modal-thumbnails" src="imgs/OTM-Full.png" alt>
 
 <p>The stacked bundle:</p>
-<img class="modal-thumbnails" src="imgs/InfineonDemo Full.png" alt>
+<img class="modal-thumbnails" src="imgs/InfineonDemoFull.png" alt>
 
 
 </details>
 <details open>
   <summary><h2>Software prerequisites</h2></summary>
   
-  <h3>1.1.1 Installing ModusToolbox<sup>TM</sup></h3>
+  <h3>Installing ModusToolbox<sup>TM</sup></h3>
   <p>Please refer to the Infineon&rsquo;s <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox<sup>TM</sup> Software</em></strong></a> pages for application download and &ldquo;Installation guide&rdquo; (<a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>link</em></strong></a>).</p>
   <table style="width:100%">
     <tr>
@@ -161,18 +164,83 @@
   </table>
   <p>Default location of installation directory for the Eclipse IDE is:</p>
   <p><em>&lt;install_path&gt;\ModusToolbox\ide_&lt;version&gt;\eclipse\</em></p>
-  <table>
-  <tbody>
-  <tr>
-  <td width="613">
-  <p><strong>Important: </strong>If the software is installed in any other than default location you have to set an environment variable. Please follow the <strong><em>ModusToolbox installation guide</em></strong>.</p>
-  </td>
-  </tr>
-  </tbody>
+  <table style="width:100%">
+    <tr>
+      <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+      <td><p><strong>Important:</strong> If the software is installed in any other than default location you have to set an environment variable. Please follow the <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox installation guide</em></strong></a>.</p></td>
+    </tr>
   </table>
+  
+  <p>To check for ModusToolBox environmental variable setting, under Windows <strong><span style="border: black 1px solid">Start menu</span></strong> or <strong><span style="border: black 1px solid">Windows search</span></strong> type in &ldquo;env&rdquo;&hellip; . The <strong>Edit the system variables</strong> should soon be listed on top as shown on Figure bellow.</p>
+  <img class="modal-thumbnails" src="screen_shots/WinMenu-Env.png" alt>
+  
+  <p>Now click on <strong><span style="border: black 1px solid">Environmental Variables</span></strong>... </p> 
+
+  <img class="modal-thumbnails" src="screen_shots/SystemProperties.png" alt>
+
+  <p>and look for “System Variable” <a class="consolas_black">CY_TOOLS_PATHS</a>. </p>
+  <img class="modal-thumbnails" src="screen_shots/EnvironmentVariables.png" alt>
+
+  <p>Please proceed accordingly:</p>
+  <ol type="A">
+  <li>If the variable does not exist, then in &ldquo;Environment Variables&rdquo; window click <strong><span style="border: black 1px solid">New</span></strong>, then in new pop-up window &ldquo;New System Variable&rdquo; at &ldquo;Variable name&rdquo; type <a class="consolas_black">CY_TOOLS_PATHS</a> and at &ldquo;Variable value&rdquo; put your ModusToolBox path or browse using <strong><span style="border: black 1px solid">Browse Directory</span></strong>. Then click <strong><span style="border: black 1px solid">OK</span></strong> as well as click <strong><span style="border: black 1px solid">OK</span></strong> in &ldquo;Environment Variables&rdquo; window.</li>
+  <img class="modal-thumbnails" src="screen_shots/NewSystemVariable.png" alt>
+  <li>If the variable exists, then in &ldquo;Environment Variables&rdquo; window click <strong><span style="border: black 1px solid">Edit</span></strong>, then in new pop-up window &ldquo;Edit System Variable&rdquo; check if &ldquo;Variable name&rdquo; type <a class="consolas_black">CY_TOOLS_PATHS</a> and &ldquo;Variable value&rdquo; matches to your ModusToolBox path or browse using <strong><span style="border: black 1px solid">Browse Directory</span></strong>. Then click <strong><span style="border: black 1px solid">OK</span></strong> as well as click <strong><span style="border: black 1px solid">OK</span></strong> in &ldquo;Environment Variables&rdquo; window.</li>
+  <img class="modal-thumbnails" src="screen_shots/EditSystemVariable.png" alt>
+  </ol>
+  <table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+    <td><p><strong>Important:</strong> Very important &ndash; use <strong>forward</strong> slashes. <strong>/ - ok</strong>; \ - not ok</p></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <p>After successful installation you should be able to see the tools installed in your start menu under &ldquo;ModusToolbox 3.1 (Current user)&rdquo;.</p>
+  <img class="modal-thumbnails" style="width: 100px;" src="screen_shots/WinMenu-IDE.png" alt>
+
+  <p>If clicked on <strong><span style="border: black 1px solid">Eclipse IDE for ModusToolBox 3.1</span></strong> you will see a &ldquo;Launcher&ldquo; window popping out.</p>
+
+<img class="modal-thumbnails" src="screen_shots/IDELauncher.png" alt>
+  </ol>
+  <table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconAccomplished.png"></th>
+    <td><p><strong>Important:</strong> If you can run &ldquo;Eclipse IDE for ModusToolbox<sup>TM</sup> Launcher&rdquo; and a workspace selection window is opening, you are good to proceed to a next step.</p></td>
+  </tr>
+</table>
+  
+  <h3>Running &ldquo;modus-shell&rdquo;</h3>
+  <p>The easiest way of running &ldquo;modus-shell&rdquo; is to look for it under Windows search by typing in &ldquo;modus&rdquo;&hellip; . The application should soon be listed on top as shown on <em>Figure 3</em>. Click on the &ldquo;App&rdquo; to run the application.</p>
 
 </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
   <details open="">
@@ -195,6 +263,10 @@
 		</tr>
 	</table>
   </details>
+
+
+
+
   <details open="">
     <summary>
       Requirements

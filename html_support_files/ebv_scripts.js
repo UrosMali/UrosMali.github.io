@@ -123,9 +123,9 @@ class Lab_templater {
     */
     #Generate_banner() {
         var html = `<span class="banner-menu-button" onclick="Open_sidenav()">&#9776;</span>
-		            <p class="banner-heading">` + lab_title + `</p>
 		            <a href="https://www.ebv.com" target="_blank"><img class="banner-logo"
 		            src="html_support_files/EBVfullWhite.png" /></a>`;
+                    
 
         this.#Append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
     }
