@@ -96,7 +96,7 @@ html {
   --next-page-button-padding-x: 16px;
   --next-page-button-padding-y: 16px;
   --next-page-button-font-size: 24px;
-  --next-page-button-width: 200px;
+  --next-page-button-width: 150px;
 
 
   /* Copy code button*/
@@ -565,6 +565,10 @@ h4 {
 .consolas_orange{
 	font-family: Consolas,monaco,monospace; /*Consolas;*/
 	color:orange;
+}
+.consolas_blue{
+	font-family: Consolas,monaco,monospace; /*Consolas;*/
+	color:blue;
 }
 
 

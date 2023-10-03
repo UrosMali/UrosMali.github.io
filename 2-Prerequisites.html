@@ -73,8 +73,8 @@
 <details open>
   <summary><h2>Software prerequisites</h2></summary>
   
-  <h3>Installing ModusToolbox<sup>TM</sup></h3>
-  <p>Please refer to the Infineon&rsquo;s <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox<sup>TM</sup> Software</em></strong></a> pages for application download and &ldquo;Installation guide&rdquo; (<a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>link</em></strong></a>).</p>
+  <h3 id="section_installing_MTB">Installing ModusToolbox&trade;</h3>
+  <p>Please refer to the Infineon&rsquo;s <a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>ModusToolbox&trade; Software</em></strong></a> pages for application download and &ldquo;Installation guide&rdquo; (<a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/" target="_blank"><strong><em>link</em></strong></a>).</p>
   <table style="width:100%">
     <tr>
       <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
@@ -139,18 +139,24 @@
   <table style="width:100%">
   <tr>
     <th style="width:30px"><img style="width:40px" src="html_support_files/IconAccomplished.png"></th>
-    <td><p><strong>Important:</strong> If you can run &ldquo;Eclipse IDE for ModusToolbox<sup>TM</sup> Launcher&rdquo; and a workspace selection window is opening, you are good to proceed to a next step.</p></td>
+    <td><p><strong>Task accomplished:</strong> If you can run &ldquo;Eclipse IDE for ModusToolbox&trade; Launcher&rdquo; and a workspace selection window is opening, you are good to proceed to a next step.</p></td>
   </tr>
 </table>
 </details>
+
+
+
 <details open>
   <summary><h3>Running &ldquo;modus-shell&rdquo;</h3></summary>
   <p>The easiest way of running &ldquo;modus-shell&rdquo; is to look for it under Windows search by typing in &ldquo;modus&rdquo;&hellip;. 
     The application should soon be listed on top as shown on figure bellow. Click on the &ldquo;App&rdquo; to run the application.</p>
 
     <img class="modal-thumbnails" style="width: 250px;" src="screen_shots/WinMenu-mod.png" alt>
-    <p>Next step is to check whether &ldquo;optigatrust&rdquo; Python module is installed. Type &ldquo;<a class="consolas_black"></a>optigatrust.exe</a>&rdquo; into the terminal. 
-      If your replay is &ldquo;<a class="consolas_black"></a>bash: optigatrust.exe: command not found</a>&rdquo;, please proceed to Sub-section <em>1.5.3</em><em>Installing &ldquo;optigatrust&rdquo; Python module</em> otherwise proceed to Sub-section <em>1.5.4</em><em>Installing other Python modules</em><em>.</em></p>
+    <p>Next step is to check whether &ldquo;optigatrust&rdquo; Python module is installed. 
+      Type &ldquo;<a class="consolas_black">optigatrust.exe</a>&rdquo; into the terminal. 
+      If your replay is &ldquo;<a class="consolas_black">bash: optigatrust.exe: command not found</a>&rdquo;, 
+      please proceed to Sub-section <a href="#Install_optigatrust"><em>Installing &ldquo;optigatrust&rdquo; Python module</em></a>  
+      otherwise proceed to Sub-section <a href="#Install_other"><em>Installing other Python modules</em></a>.</p>
 
 
 
@@ -171,9 +177,231 @@
 			<br><br>
 			<span class="consolas_green">user@computer_name</span>
 			<span class="consolas_orange"> ~</span><br>
+      <span class="consolas_black">    $ </span>
+			<br><br>
 		</tr>
 	</table>
   </details>
+
+
+
+
+
+  <details open id="Install_optigatrust">
+    <summary><h3>Installing &ldquo;optigatrust&rdquo; Python module</h3></summary>
+    <p>Please install the &ldquo;optigatrust&rdquo; Python module by executing &ldquo;<a class="consolas_black">pip install optigatrust</a>&rdquo;. Installation is successful if &ldquo;<a class="consolas_black">Successfully installed&hellip;</a>&rdquo; message appears.</p>
+<table style="width:90%" class="table_terminal">
+		<tr>
+			<th><img style="height:12px" src="html_support_files/IconTerminal.png"> ~</th>
+		</tr>
+		<tr>
+			<td>
+			<span class="consolas_green">user@computer_name</span>
+      <span class="consolas_black">
+      $ pip install optigatrust<br>
+      Collecting optigatrust<br>
+        Downloading optigatrust-1.3.7-py3-none-any.whl (493 kB)<br>
+           |████████████████████████████████| 493 kB 2.2 MB/s<br>
+      Requirement already satisfied: cryptography in d:\infineon\modustoolbox\tools_3.0\python\lib\site-packages (from optigatrust) (36.0.1)<br>
+      Requirement already satisfied: click in d:\infineon\modustoolbox\tools_3.0\python\lib\site-packages (from optigatrust) (8.0.4)<br>
+      Collecting jinja2<br>
+        Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)<br>
+           |████████████████████████████████| 133 kB 6.8 MB/s<br>
+      Collecting pyserial<br>
+        Using cached pyserial-3.5-py2.py3-none-any.whl (90 kB)<br>
+      Collecting asn1crypto<br>
+        Downloading asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)<br>
+           |████████████████████████████████| 105 kB 6.4 MB/s<br>
+      Requirement already satisfied: colorama in d:\infineon\modustoolbox\tools_3.0\python\lib\site-packages (from click->optigatrust) (0.4.5)<br>
+      Requirement already satisfied: cffi>=1.12 in d:\infineon\modustoolbox\tools_3.0\python\lib\site-packages (from cryptography->optigatrust) (1.15.1)<br>
+      Requirement already satisfied: pycparser in d:\infineon\modustoolbox\tools_3.0\python\lib\site-packages (from cffi>=1.12->cryptography->optigatrust) (2.21)<br>
+      Collecting MarkupSafe>=2.0<br>
+        Downloading MarkupSafe-2.1.2-cp38-cp38-win_amd64.whl (16 kB)<br>
+      Installing collected packages: MarkupSafe, pyserial, jinja2, asn1crypto, optigatrust<br>
+      Successfully installed MarkupSafe-2.1.2 asn1crypto-1.5.1 jinja2-3.1.2 optigatrust-1.3.7 pyserial-3.5<br>
+    </span>
+      <span class="consolas_orange">WARNING: You are using pip version 21.1.3; however, version 23.0.1 is available.<br>
+      You should consider upgrading via the ‘D:\Infineon\ModusToolbox\tools_3.0\python\python.exe -m pip install –upgrade pip’ command.<br>
+      <br>
+      </span>
+      <span class="consolas_green">user@computer_name</span>
+    <span class="consolas_orange"> ~</span><br>
+    <span class="consolas_black">    $ </span>
+			<br><br>
+			
+		</tr>
+	</table>
+
+  Quick check for proper &ldquo;optigatrust&ldquo; Python module installation is to run <a class="consolas_black">&ldquo;optigatrust&ldquo;</a> 
+  or <a class="consolas_black">&ldquo;optigatrust.exe&ldquo;</a> command. We should see a replay with short usage instructions.
+  <table style="width:90%" class="table_terminal">
+		<tr>
+			<th><img style="height:12px" src="html_support_files/IconTerminal.png"> ~</th>
+		</tr>
+		<tr>
+			<td>
+			<span class="consolas_green">user@computer_name</span>
+      <span class="consolas_black">
+        $ optigatrust.exe<br>
+        Usage: optigatrust [OPTIONS] COMMAND [ARGS]...<br>
+        <br>
+        Options:<br>
+          --version  Show the version and exit.<br>
+          --help     Show this message and exit.<br>
+          <br>
+        Commands:<br>
+          create-keys    Generate a keypair<br>
+          object         Manages objects data and metadata<br>
+          update         Use protected update feature<br>
+          update-wizard  Guide through the protected update preparation for a...<br>
+          <br>
+    </span>
+      
+    <span class="consolas_green">user@computer_name</span>
+    <span class="consolas_orange"> ~</span><br>
+    <span class="consolas_black">    $ </span>
+			<br><br>
+			
+		</tr>
+	</table>
+  </details>
+
+
+
+
+
+  <details open id="Install_other">
+    <summary><h3>Installing other Python modules</h3></summary>
+    <p>To run all the steps related to secure element interfacing using Python scripts, we need to add OpenSSL, QRcode and
+       image related modules. Please install the modules using following commands:</p>
+<table style="width:90%" class="table_terminal">
+		<tr>
+			<th><img style="height:12px" src="html_support_files/IconTerminal.png"> ~</th>
+		</tr>
+		<tr>
+			<td>
+			<span class="consolas_green">user@computer_name</span>
+      <span class="consolas_black">
+        $ pip list<br>
+        Package             Version<br>
+        ------------------- ------------<br>
+        appdirs             1.4.4<br>
+        .<br>
+        openssl-python      0.1.1<br>
+        optigatrust         1.3.7<br>
+        Pillow              9.5.0<br>
+        .<br>
+        pyOpenSSL           23.1.1<br>
+        .<br>
+        qrcode              7.4.2<br>
+        <br>
+    </span>
+      <span class="consolas_orange">WARNING: You are using pip version 21.1.3; however, version 23.1.2 is available.<br>
+        You should consider upgrading via the 'D:\Infineon\ModusToolbox\tools_3.0\python\python.exe -m pip install --upgrade pip' command.<br>
+        
+      <br>
+      </span>
+      <span class="consolas_green">user@computer_name</span>
+    <span class="consolas_orange"> ~</span><br>
+    <span class="consolas_black">    $ </span>
+			<br><br>
+			
+		</tr>
+	</table>
+
+  <table style="width:100%">
+    <tr>
+      <th style="width:30px"><img style="width:40px" src="html_support_files/IconAccomplished.png"></th>
+      <td><p><strong>Task accomplished:</strong> If your &ldquo;<a class="consolas_black">pip list</a>&rdquo; is listing &ldquo;<a class="consolas_black">optigatrust</a>&rdquo;, &ldquo;<a class="consolas_black">pyopenssl</a>&rdquo;, &ldquo;<a class="consolas_black">pillow</a>&rdquo;, and &ldquo;<a class="consolas_black">qrcode</a>&rdquo; you are 
+        fulfilling Python related requirements.</p></td>
+    </tr>
+  </table>
+  
+
+  </details>
+
+
+
+
+
+
+
+
+
+
+
+
+  <details open>
+    <summary><h2>2.3.	Create IoTConnect cloud account </h2></summary>
+      <p>As a first step in every cloud platform it is to create your cloud access account. 
+        Use your favourite browser to access EBV IoTConnect website at 
+        <a href="https://iotconnect.io/ebv" target=”_blank”><strong><em>https://iotconnect.io/ebv</em></strong></a> and click 
+        <strong><span style="border: black 1px solid">Request a Free IoTConnect Account</span></strong>:</p>
+        <a href="https://iotconnect.io/ebv" target=”_blank”><img class="modal-thumbnails" src="screen_shots/iotc_landing_page.png" alt></a>
+
+        <p>Enter your details and make sure your email address is valid then click <strong><span style="border: black 1px solid">Submit</span></strong> button:</p>
+
+        <img class="modal-thumbnails" src="screen_shots/iotc_create_account.png" alt>
+  
+        <table style="width:100%">
+          <tr>
+            <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+            <td><p><strong>Important:</strong> Password must contain at least 1 upper case and special character. </p></td>
+          </tr>
+        </table>
+
+        <p>If the provided information is correct, a confirmation popup invites you to check your emails for an email with a 
+        link to validate your email address. Press <strong><span style="border: black 1px solid">OK</span></strong> button: Usually, the browser returns you to the beginning of the page.</p>
+        <img class="modal-thumbnails" src="screen_shots/iotc_says_saved.png" alt>
+
+        <p>Please check your mailbox. You should be receiving email with a verification. Click on <strong><span style="border: black 1px solid">Verify Email Now.</span></strong></p>
+  
+        <p>The webpage loads again and process the creation of your account in the background. Once complete, below popup should open to confirm your IoTConnect account has been created successfully. 
+          Click <strong><span style="border: black 1px solid">OK</span></strong> button:</p>
+        <img class="modal-thumbnails" src="screen_shots/iotc_says_registered.png" alt>
+
+        <p>Please check your mailbox. You should now get confirmation email with a link to the cloud platform.</p>
+        <p>Login to the cloud using email and password you provided during registration process.</p>
+        <img class="modal-thumbnails" src="screen_shots/iotc_welcome_back.png" alt>
+
+        <p>If it happens you forgot your password, you can reset the password by clicking <strong><span style="border: black 1px solid">Forgot Password?</span></strong> at login page. </p>
+
+        <p>Reset your password by providing new one and confirmation of the same password and click <strong><span style="border: black 1px solid">Submit</span></strong>.</p>
+
+        <table style="width:100%">
+          <tr>
+            <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+            <td><p><strong>Important:</strong> Password must contain at least 1 upper case and special character. </p></td>
+          </tr>
+        </table>
+
+        <img class="modal-thumbnails" src="screen_shots/iotc_reset_password.png" alt>
+
+        <p>You should be now seeing &ldquo;Welcome back&rdquo; page.</p>
+        
+        <img class="modal-thumbnails" src="screen_shots/iotc_password_changed.png" alt>
+
+        <p>After a successful login, the IoTConnect backend will land to the Dashboard page showing information 
+          related to device activities (device to cloud messages, command, twin properties, rule, notification, events, etc) and the current subscription plan:</p>
+          
+        <img class="modal-thumbnails" src="screen_shots/iotc_dashboard_initial.png" alt>
+
+
+
+
+
+
+        <table style="width:100%">
+          <tr>
+            <th style="width:30px"><img style="width:40px" src="html_support_files/IconAccomplished.png"></th>
+            <td><p><strong>Task accomplished:</strong> Congratulations, you have just created your free Avnet IoTConnect cloud account. Save your IoTConnect login credentials securely for your next use. </p></td>
+          </tr>
+        </table>
+  
+  </details>
+
+
+
 
 
 

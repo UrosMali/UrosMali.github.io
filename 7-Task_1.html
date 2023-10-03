@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html data-kantu="1">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- Useful for tablet and mobile based browsing-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Title of the page (not necessarily the lab) - for reference only, not displayed on the page-->
+	<title>EBV-IoT - Introduction</title>
+  <link rel="icon" type="image/x-icon" href="https://www.avnet.com/wps/contenthandler/!ut/p/digest!-FCm2sisriEGGFffr1BxTg/dav/fs-type1/themes/Avnet_Stores/css/images/ebv/favicon.ico">
+	<!-- CSS template stylesheet must be linked here-->
+	<link href="./html_support_files/ebv_layout_style.css" rel="stylesheet" type="text/css">
+	<!-- Javascript based lab templating helper must be placed here-->
+	<script type="text/javascript" src="./html_support_files/ebv_scripts.js"></script>
+ <style>
+    body {
+      /* Set counter for h1 manually since each section is own html page. Set Section#-1*/
+      counter-reset: h1 6 h2 h3 h4;
+    }
+    </style>
+</head>
+
+<body>
+	<link href='https://fonts.googleapis.com/css?family=Hanken Grotesk' rel='stylesheet'>
+
+  <!-- Populate the page header (banner, title & navigation menu)-->
+  <script>lab_templater.Generate_header();</script> 
+	
+	<!-- Begin the main content of the page-->
+    <div class="main-content">
+      <details open>
+        <summary style="list-style: none;text-align: center;font-weight: bolder;">EBV-IoT - Infineon &amp; Avnet IoTConnect Secure Cloud connected solution - <br>Training manual</summary>
+      </details>
+
+
+
+
+
+<details open>
+<summary><h1>Task 1: PSoC programming and debugging – Hello world</h1></summary>
+
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+    <td><p><strong>Important:</strong> ModusToolbox&trade; has to be installed prior running the task. Please refer to sub-section <strong><em><a href="2-Prerequisites.html#section_installing_MTB">Installing ModusToolbox&trade;</a></em></strong>.  </p></td>
+  </tr>
+</table>
+
+<summary><h2>Overview</h2></summary>
+<p>In this task we will create a simple “Hello world” project to get familiar with the toolchain.</p>
+
+<summary><h2>ModusToolbox Overview</h2></summary>
+<p>ModusToolbox&trade; Software is a modern, extensible development environment supporting a wide range of Infineon microcontroller devices,
+including <a href="https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/" target="_blank"><strong>PSoC&trade; Arm&reg; Cortex&reg; Microcontrollers</strong></a>,
+<a href="https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/" target="_blank"><strong>TRAVEO&trade; T2G Arm&reg; Cortex&reg; Microcontroller</strong></a>, 
+<a href="https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/" target="_blank"><strong>XMC&trade; Industrial Microcontrollers</strong></a>, 
+<a href="https://www.infineon.com/cms/en/product/wireless-connectivity/" target="_blank"><strong>AIROC&trade; Wi-Fi devices, AIROC&trade; Bluetooth&reg; devices</strong></a>, and 
+<a href="https://www.infineon.com/cms/en/product/universal-serial-bus-usb-power-delivery-controller/usb-c-and-power-delivery/ez-pd-pmg1-portfolio-high-voltage-mcus-usb-c-power-delivery/" target="_blank"><strong>USB-C Power Delivery Microcontrollers</strong></a>.</p>
+
+</details>
+<details open>
+<summary><h2>Step by step guide</h2></summary>
+
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconToDo.png"></th>
+    <td><p><strong>To Do:</strong> The task does not involve any software development. Instead, it is only required to process the steps in the right order and to understand their underlying effects.</p></td>
+  </tr>
+</table>
+
+
+<h3>HW setup</h3>
+<p>In this task we will actually use only PSoC Pioneer Kit, but we recommend using complete stack of boards as will be required in later tasks.</p> <!-- Please check section 5 Hardware configuration for details.</p>-->
+
+<p>For convenience, stack the Arduino compatible shields in the following order from bottom to top:</p>
+
+<ul>
+  <li>The PSoC&trade; 62S2 Wi-Fi BT Pioneer Kit (CY8CKIT-062S2-43012) &ndash; at the bottom</li>
+  <li>EBV-IoT &ndash; Infineon PAS CO2 Evaluation Shield</li>
+  <li>EBV-IoT &ndash; Infineon OPTIGA Trust M Evaluation Shield</li>
+  <li>128x128 pixels OLED display (optional)</li>
+</ul>
+
+<img class="modal-thumbnails" src="imgs/InfineonDemoFull.png" alt>
+
+<p>Then only plug your laptop to the PSoC Kit USB programming interface as shown below:</p>
+<img class="modal-thumbnails" width="800px" src="screen_shots/pioneer_kit_pc_connection.png" alt>
+
+
+<h3>Launch Eclipse IDE for ModusToolbox</h3>
+<p>To launch the Eclipse IDE start <strong>Eclipse IDE for ModusToolbox 3.1</strong> from Windows start menu under &ldquo;<strong>ModusToolbox 3.1 (Current user)</strong>&rdquo;</p>
+<img class="modal-thumbnails" src="screen_shots/WinMenu-IDE.png" alt>
+
+
+
+  <table style="width:100%">
+    <tr>
+      <th style="width:30px"><img style="width:40px" src="html_support_files/IconImportant.png"></th>
+      <td><p><strong>Important:</strong> It is <strong>very important</strong> to keep your <strong>Workspace</strong> and <strong>Project names</strong> as <strong>short</strong> as possible. Otherwise, the complete path length may become too long and compilation of some later project may not succeed.</p></td>
+    </tr>
+  </table>
+
+<p>At &ldquo;<strong>Select a directory as workspace</strong>&rdquo; prompt you can either (select one option from the list bellow)</p>
+<ol style="list-style-type: upper-alpha;">
+<li>browse for your existing workspace directory clicking <strong><span style="border: black 1px solid">Browse</span></strong>,</li>
+<li>create new directory by clicking <strong><span style="border: black 1px solid">Browse</span></strong> and then inside the 
+  File explorer right click and go for <strong>New</strong><strong>&rarr;Folder</strong>, name the folder, select newly created folder, 
+  and click <strong><span style="border: black 1px solid">Select Folder</span></strong>,</li>
+  <img class="modal-thumbnails" src="screen_shots/MTB_select_workspace.png" alt>
+<li>Type in <strong>any valid path</strong> for your workspace and the tool will create it at <strong><span style="border: black 1px solid">Launch</span></strong> if missing,</li>
+<li>or search among recent workspaces listed when clicking <strong><span style="border: black 1px solid">Recent workspaces</span></strong>.</li>
+</ol>
+
+<p>Select Workspace Directory and click <strong><span style="border: black 1px solid">Launch</span></strong></p>
+<img class="modal-thumbnails" src="screen_shots/MTB_launcher.png" alt>
+
+</details>
+<details open>
+  <summary><h3>Create a project</h3></summary>
+  <p>When creating a new workspace or if no project were previously added to the workspace, you will see an empty workspace as shown below. Click the <strong>New Application </strong>link in the Eclipse IDE &ldquo;<strong>Quick Panel</strong>&rdquo;.</p>
+
+  <img class="modal-thumbnails" src="screen_shots/MTB_IDE.png" alt>
+
+  <p>Alternatively, you can use <strong><span style="border: black 1px solid">File&rarr;New&rarr;ModusToolbox&trade;</span></strong> Application or press &ldquo;CTRL+7&rdquo;.</p>
+
+  <p>These commands launch the &ldquo;<strong>Project Creator</strong>&rdquo; tool with Board Support Package (BSP) selection, 
+    which displays a list of boards, showing the Kit Name, MCU, and Connectivity Device (if applicable). As you select each of 
+    the kits shown, the description for that kit displays on the right. Depending on the settings for your system, you may see 
+    different categories, including PSoC&trade; 4, PSoC&trade; 6, and AIROC&trade; Bluetooth&reg; BSPs. For this example, select 
+    the <strong>CY8CKIT-062S2-43012</strong> kit and click <strong><span style="border: black 1px solid">Next</span></strong>.</p>
+  
+  <img class="modal-thumbnails" src="screen_shots/MTB_project_creator.png" alt>
+
+  <p>Next, &ldquo;<strong>Select application</strong>&rdquo; window is opened listing various applications available for the 
+    selected kit. As you select an application, a description displays on the right. You can select multiple applications for the 
+    selected BSP by enabling the check box next to the applicable applications. In the Project Creator - Select Application dialog, 
+    choose the example by enabling the checkbox. Go to &ldquo;Getting Started&rdquo; and select check box next to the 
+    "<strong>Hello World</strong>" application. Optionally, you can change the suggested New Application Name. Click Create to 
+    complete the application creation process.</p>
+
+  <img class="modal-thumbnails" src="screen_shots/MTB_project_creator_new_project.png" alt>
+
+<p>When you select a supported kit, the example is reconfigured automatically to work with the kit. To work with a different supported kit later, use the Library Manager to choose the BSP for the supported kit. You can use the Library Manager to select or update the BSP and firmware libraries used in this application. To access the Library Manager, click the link from the Quick Panel.</p>
+<p>You can also just start the application creation process again and select a different kit.</p>
+<p>If you want to use the application for a kit not listed here, you may need to update the source files. If the kit does not have the required resources, the application may not work.</p>
+
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
+    <td><p><strong>Note:</strong> For more details about using this tool, refer to the <a href="http://www.cypress.com/ModusToolboxProjectCreator" target="_blank"><strong><em>ModusToolbox&trade; Project Creator user guide</em></strong></a><strong><em>.</em></strong></p></p></td>
+  </tr>
+</table>
+
+<p>After several moments, the application opens with the <em>Hello_World </em>in the &ldquo;<strong>Project Explorer</strong>&rdquo;, and the <em>README.md </em>file opens in the file viewer.</p>
+
+<img class="modal-thumbnails" src="screen_shots/MTB_hello_world_readme.png" alt>
+
+<table style="width:100%">
+  <tr>
+    <th style="width:30px"><img style="width:40px" src="html_support_files/IconTip.png"></th>
+    <td><p><strong>Tip:</strong> It is convenient to have line numbers shown in the IDE. Please go for 
+      <strong><span style="border: black 1px solid">Window&rarr;Preferences</span></strong> now search for 
+      &ldquo;<strong>number</strong>&rdquo; or go for <strong><span style="border: black 1px solid">General&rarr;Editors&rarr;Text Editors<span style="border: black 1px solid"></span></strong> 
+      and <strong><span style="border: black 1px solid">check</span></strong> &ldquo;<strong>Show line numbers</strong>&rdquo; and 
+      click <strong><span style="border: black 1px solid">Apply and Close</span></strong>.</p></td>
+  </tr>
+</table>
+<img class="modal-thumbnails" src="screen_shots/MTB_line_numbers.png" alt>
+
+</details>
+
+<details open>
+  <summary><h2>IDE overview</h2></summary>
+  <p>The IDE is based on the Eclipse IDE. It uses several plugins, including the Eclipse C/C++ Development Tools (CDT) plugin. 
+    For more information about Eclipse, refer to the <a href="http://help.eclipse.org/oxygen/index.jsp?nav=%2F0_4_4" target="_blank"><strong><em><u>Eclipse Workbench User Guide</u></em></strong>.</a> 
+    We also provide a document called the <a href="https://www.cypress.com/EclipseIDESurvivalGuide" target="_blank"><strong><em><u>Eclipse IDE survival guide</u></em></strong><u>,</u></a> which provides tips and hints for how to use the Eclipse IDE.</p>
+  <p>The IDE contains Eclipse standard menus and toolbars, plus various panes such as the Project Explorer, Code Editor, and Console. 
+    One difference from the standard Eclipse IDE is the "ModusToolbox&trade; Perspective". This perspective provides the 
+    "<strong>Quick</strong><strong> Panel</strong>", and adds tabs to the <strong>Project Explorer</strong>. 
+    "Perspective" is an Eclipse term for the initial set and layout of views in the IDE.</p>
+
+
+    <img class="modal-thumbnails" src="screen_shots/MTB_explain_tagged.png" alt>
+
+    <table style="width:100%">
+      <tr>
+        <th style="width:30px"><img style="width:40px" src="html_support_files/IconTip.png"></th>
+        <td><p><strong>Tip:</strong> If you switch to a different perspective, you can restore the ModusToolbox&trade; 
+          Perspective by clicking the ModusToolbox&trade; icon button in the upper-right corner. You can also select 
+          <strong><span style="border: black 1px solid">Perspective&rarr;Open Perspective</span></strong> from the <strong>Window</strong> menu. To restore the 
+          ModusToolbox&trade; Perspective to the original layout, select <strong><span style="border: black 1px solid">Perspective&rarr;Reset Perspective</span></strong> from the <strong>Window</strong> menu.</p></td>
+      </tr>
+    </table>
+
+    <p>The following describe different parts of the IDE:</p>
+    <ul>
+    <li><strong>Menus and toolbars</strong> &ndash; Use the various menus and toolbars to access build/program/debug commands for your Many of these are covered in the <a href="http://help.eclipse.org/oxygen/index.jsp?nav=%2F0_4_4" target="_blank"><strong><em><u>Eclipse</u></em></strong> <strong><em><u>Workbench</u></em></strong> <strong><em><u>User</u></em></strong> <strong><em><u>Guide</u></em></strong></a>.</li>
+    <li><strong>Project</strong><strong> Explorer</strong> &ndash; Use the Project Explorer to find and open files in your See <em>Project</em><em> Explorer</em> for more information.</li>
+    <li><strong>Quick</strong><strong> Panel</strong> &ndash; Use this tab to access appropriate commands, based on what you select in the Project Explorer. More in <em>Quick</em><em> Panel</em> sub-section.</li>
+    <li><strong>Code</strong><strong> Editor</strong>&ndash;UsetheCodeEditortoeditvarioussourcefilesinyour</li>
+    <li><strong>Console</strong>&ndash;Usethesetoolstoreviewmessagesandaccesstheintegrated</li>
+    </ul>
+
+    <h3>Project Explorer</h3>
+    <p>In the Eclipse IDE, after creating an application, the <strong>Project Explorer</strong> contains one or more related project folders. The following images show our &ldquo;Hello_world&rdquo; PSoC&trade; MCU application.</p>
+    <p>Both PSoC&trade; MCU application and an AIROC&trade; Bluetooth&reg; application types of applications contain a similar project structure. Each contains the main application source code, and a Makefile. Note that PSoC&trade; MCU applications contain a libs directory, while AIROC&trade; Bluetooth&reg; applications have a wiced_btsdk project with shared SDK, BSPs, and libraries for all applications in a workspace.</p>
+
+    <img class="modal-thumbnails" src="screen_shots/MTB_project_explorer.png" alt>
+
+    <h3>Quick Panel</h3>
+    <p>As stated previously, the &ldquo;<strong>Quick Panel</strong>&rdquo; is part of the "ModusToolbox&trade; Perspective&rdquo;. It provides quick access to commands and documentation based on what you have selected in the &ldquo;<strong>Project Explorer</strong>&rdquo;.</p>
+    <p>The Quick Panel contains links to various commands and documentation, organized as follows:</p>
+    <ul>
+    <li><strong>Start</strong> &ndash; This contains the New Application link to create new applications, and links to find Code Examples, Libraries, BSPs, and training material.</li>
+    <li><strong>Selected</strong><strong> &lt;app-name&gt;</strong><strong> project</strong> &ndash; This contains different project-related links based on the project that is selected in the Project Explorer, as well as the type of Links here include: Build and Clean the application.</li>
+    <li><strong>Launches</strong> &ndash; This contains various Launch Configurations, based on the selected application project and device, which can be used to program the device and launch the This area is only populated if you have the top project in your application selected (<em>&lt;app-name&gt;</em>).</li>
+    <li><strong>Tools</strong> &ndash; This contains links to the various tools available for the selected For more information.</li>
+    <li><strong>Documentation </strong>&ndash; This may contain several documents in HTML format, which are included as part of the chosen BSP.</li>
+    </ul>
+    <img class="modal-thumbnails" src="screen_shots/MTB_quick_panel_full.png" alt>
+
+    <h3>Program application</h3>
+    <p>After loading an application, build it to generate the necessary files. Select a project. Then, in the <strong>Quick Panel</strong>, click the <strong>Build Application </strong>link. The following images show the <strong>Quick Panel</strong> for a typical PSoC&trade; MCU application.</p>
+    <p>It may take some time to compile, but it only takes so much time for the first compile or after &ldquo;Clean Application&rdquo; execution. In the <strong>Console</strong> you can follow messages flow until receiving something like:</p>
+    <p class="consolas_blue">14:08:31 Build Finished. 0 errors, 0 warnings. (took 53s.74ms)</p>
+    <img class="modal-thumbnails" src="screen_shots/MTB_quick_panel.png" alt>
+
+    <h3>Build application</h3>
+    <p>In the <strong>Project Explorer</strong>, select the desired project. Then, in the <strong>Quick Panel</strong>, click the <strong>Hello_World Program (KitProg3_MiniProg4) </strong>link for a PSoC&trade; MCU application.</p>
+    <p>In the <strong>Console</strong> you should be seeing some messages including &ldquo;Erasing&rdquo; and &ldquo;Programming&rdquo; progress bar and the orange LED on the PSoC Pioneer Kit blinking. </p>
+    <img class="modal-thumbnails" src="screen_shots/MTB_quick_panel_launch.png" alt>
+
+
+    <h3>Accessing the device through serial terminal</h3>
+    <p>The &ldquo;Hello_world&rdquo; application also sends some data to serial communication interface we can read using any serial communication terminal. Please use device manager to get your device serial port number information like the one depicted bellow:</p>
+    <img class="modal-thumbnails" src="screen_shots/Device_manager_ports.png" alt>
+
+    <p>Use your favorite serial communication terminal for serial communication monitoring. We use TeraTerm or you can use ModusToolbox integrated serial communication terminal. Use following settings:</p>
+    <ul>
+    <li>Port number: as retrieved from &ldquo;Device manager&rdquo;</li>
+    <li>Speed: 115200</li>
+    <li>Data: 8 bit</li>
+    <li>Parity: none</li>
+    <li>Stop bits: 1</li>
+    <li>Flow control: none</li>
+    </ul>
+    <p>For the &ldquo;Hello_World&rdquo; example you should be seeing messages as follows (reset board if needed):</p>
+
+    <table style="width:90%" class="table_terminal">
+      <tr>
+        <th><img style="height:12px" src="html_support_files/Icon_TT_.png">Terminal – COM14<br>
+          <p><u>F</u>ile&nbsp; <u>E</u>dit&nbsp; <u>S</u>etup&nbsp; C<u>o</u>ntrol&nbsp; <u>W</u>indow&nbsp; <u>H</u>elp</p></th>
+      </tr>
+      <tr>
+        <td>
+        <span class="consolas_black">
+          ****************** HAL: Hello World! Example ******************<br>
+          <br>
+          Hello World!!!<br>
+          <br>
+          For more projects, visit our code examples repositories:<br>
+          <br>
+        </span>
+          
+          <span class="consolas_green">https://github.com/Infineon/Code-Examples-for-ModusToolbox-Software<br></span>
+          <span class="consolas_black">
+          <br>
+          Press 'Enter' key to pause or resume blinking the user LED<br>
+          <br>
+          LED blinking paused<br>
+          <br>    
+          <br>   
+      </span>
+      
+      </tr>
+    </table>
+
+    <h3>Debug application</h3>
+    <p>One of the most advanced features of the toolchain is definitely step-by-step debugging. In the <strong>Project Explorer</strong>, select the desired project. Then, in the <strong>Quick Panel</strong>, click the <strong>Hello_World Debug (KitProg3_MiniProg4) </strong>link for a PSoC&trade; MCU application</p>
+    <p>The process is very similar to &ldquo;Build&rdquo; process: in the <strong>Console</strong> you should be seeing some messages including &ldquo;Erasing&rdquo; and &ldquo;Programming&rdquo; progress bar, but now your application execution will halt at &ldquo;main&rdquo; function entrance. </p>
+    <img class="modal-thumbnails" src="screen_shots/MTB_quick_panel_launch.png" alt>
+    <p></p>
+
+    <img class="modal-thumbnails" src="screen_shots/MTB_debug.png" alt>
+
+    <p>Now you could do step by step code execution or eventually run it as in the &ldquo;Program&rdquo; example. Please use icons &nbsp;in the &ldquo;Toolbar&rdquo; menu or check &ldquo;Run&rdquo; for all the options. Eventually you can use following shortcuts:</p>
+    <ul>
+    <li>F8 &ndash; Run or Resume</li>
+    <li>F5 &ndash; Step Into</li>
+    <li>F6 &ndash; Step Over</li>
+    <li>CTRL + F2 &ndash; Terminate</li>
+    <li>CTRL + R &ndash; Run to Line</li>
+    </ul>
+
+    <img class="modal-thumbnails" src="screen_shots/MTB_run.png" alt>
+
+
+
+    <table style="width:100%">
+      <tr>
+        <th style="width:30px"><img style="width:40px" src="html_support_files/IconTip.png"></th>
+        <td><p><strong>Tip:</strong> The shortcuts above are very handy, especially if you use debugging for longer period of time.</p></td>
+      </tr>
+    </table>
+
+
+    <table style="width:100%">
+      <tr>
+        <th style="width:30px"><img style="width:40px" src="html_support_files/IconNote.png"></th>
+        <td><p><strong>Note:</strong> 
+          <p>You may noticed the perspective changed to &ldquo;Debug&rdquo; perspective which is more convenient for application debugging. 
+            You can change perspective using <strong><strong><span style="border: black 1px solid">Window&rarr;Perspective&rarr;Open Perspective&rarr;Other</span></strong> 
+            and use any other perspective or switch to <strong>ModusToolbox (default)</strong> perspective. You can also select perspective 
+            from the <strong>Toolbar</strong> at the far right hand side using icon .</p></td>
+      </tr>
+    </table>
+
+
+
+
+
+
+        <table style="width:100%">
+          <tr>
+            <th style="width:30px"><img style="width:40px" src="html_support_files/IconAccomplished.png"></th>
+            <td><p><strong>Task accomplished:</strong> Congratulations, you have just run your first ModusToolbox application and learn step-by-step debugging.</p></td>
+          </tr>
+        </table>
+  
+  </details>
+
+
+
+
+
+
+ 
+		<!-- Prepare the pages modal images-->
+		<script>lab_templater.Prepare_modal();</script>
+    <div id="image-modal" class="modal">
+			<span class="modal-close-button">×</span>
+			<img class="modal-content" id="modal-image-area">
+			<div id="modal-caption"></div>
+		</div>
+
+		<!-- Button for going to the next page-->
+		<!--<div style="display: flex;justify-content: center;flex-direction: row;">-->
+      <script>lab_templater.Generate_prev_next_page_button("Previous...", "Next...");</script>
+      <div class="flex-parent jc-center">
+        
+        
+      </div>
+		</div>
+</body>
+</html>

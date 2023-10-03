@@ -14,17 +14,17 @@ const lab_title = "EBV-IoT - Infineon & Avnet IoTConnect Secure Cloud connection
 const pages_in_lab = [
     "index.html", "Introduction",   
     "2-Prerequisites.html", "2.	Prerequisites",
-    "3-Main_system_components.html", "3. Main system components",    
+    /*"3-Main_system_components.html", "3. Main system components",    
     "4_System_setup.html", "4. System setup using evaluation hardware",
     ".html", "5. Hardware configuration",
-    ".html", "6. EBV IoTConnect – Solution Accelerator Software",
-    ".html", "7. Task 1: PSoC programming and debugging – Hello world",
-    ".html", "8. Task 2: PSoC programming and debugging – Adding sensors",
+    ".html", "6. EBV IoTConnect – Solution Accelerator Software",*/
+    "7-Task_1.html", "7. Task 1: PSoC programming and debugging – Hello world"
+    /*".html", "8. Task 2: PSoC programming and debugging – Adding sensors",
     ".html", "9. Task 3: OPTIGA provisioning for IoTConnect Cloud",
     ".html", "10. Task 4: Create a device in IoTConnect Cloud",
     ".html", "11. Task 5: Getting hardware ready for IoTConnect cloud",
     ".html", "12. Task 6: Connecting the demo to IoTConnect Cloud	67",
-    ".html", "13. Task 7: Remote access from EBV Mobile App"
+    ".html", "13. Task 7: Remote access from EBV Mobile App"*/
 
 ];
 
@@ -138,7 +138,7 @@ class Lab_templater {
     */
     #Generate_banner() {
         var html = `<span class="banner-menu-button" onclick="Open_sidenav()">&#9776;</span>
-		            <a href="https://www.ebv.com" target="_blank"><img class="banner-logo"
+		            <a href="https://www.avnet.com/wps/portal/ebv/" target="_blank"><img class="banner-logo"
 		            src="html_support_files/EBVfullWhite.png" /></a>`;
                     
 
