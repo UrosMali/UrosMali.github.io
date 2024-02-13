@@ -137,9 +137,11 @@ class Lab_templater {
     * str is the string for the title of the lab
     */
     #Generate_banner() {
-        var html = `<span class="banner-menu-button" onclick="Open_sidenav()">&#9776;</span>
+        /*var html = `<span class="banner-menu-button" onclick="Open_sidenav()">&#9776;</span>
 		            <a href="https://www.avnet.com/wps/portal/ebv/" target="_blank"><img class="banner-logo"
-		            src="html_support_files/EBVfullWhite.png" /></a>`;
+		            src="html_support_files/EBVfullWhite.png" /></a>`;*/
+        var html = `<span class="banner-menu-button" onclick="Open_sidenav()">&#9776;</span>
+		            `;                    
                     
 
         this.#Append_html(document.getElementsByTagName('header')[0], html); /* Append html to header*/
